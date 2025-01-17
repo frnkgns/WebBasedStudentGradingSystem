@@ -1,0 +1,35 @@
+body {
+    background-color: #fff; /* White background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333; /* Dark gray text */
+}
+
+.container {
+    padding: 50px;
+}
+
+h1 {
+    color: #333; /* Dark gray text */
+    font-size: 3em;
+}
+
+p {
+    color: #666; /* Medium gray text */
+    font-size: 1.2em;
+}
+
+button {
+    background-color: #C8A2C8; /* Lilac button background */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #BB8FBF; /* Darker lilac on hover */
+}
