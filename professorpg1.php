@@ -72,7 +72,7 @@
                 <div id="dropdownAvatarName" class="ng-gray-200 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                     <li>
-                        <a href="ViewAccountDetails.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Account Details</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Account Details</a>
                     </li>
                     </ul>
                     <div class="py-2">
@@ -90,6 +90,9 @@
                 
                 <li>
                 <a>Isabela State University - College of Computing Studies in Information Communication Technology</a>
+                </li>
+                <li>
+                <a href="logout.php" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 ml-2">Logout</a>
                 </li>
             </ul>
             </div>
@@ -127,10 +130,6 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    
-                                    $totalWeightedSum = 0;
-                                    $totalWeight = 0;
-
                                     while ($row = $result1->fetch_assoc()) {
                                         echo "<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>";
                                         echo "<td class='px-6 py-4'>" . htmlspecialchars($row['subjectname']) . " (" . htmlspecialchars($row['code']) . ") ". "</td>";
@@ -146,22 +145,8 @@
                                         echo "<td class='px-6 py-4'><input type='text' name='midterm_" . $row['AccountID'] . "' value='" . htmlspecialchars($row['midterm']) . "' type='number' id='midterm' aria-describedby='helper-text-explanation' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='80' required w-50'></td>";
                                         echo "<td class='px-6 py-4'><input type='text' name='finals_" . $row['AccountID'] . "' value='" . htmlspecialchars($row['finals']) . "' type='number' id='finals' aria-describedby='helper-text-explanation' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='80' required w-50'></td>";
                                         
-                                        $quizWeight = 0.15; 
-                                        $prelimWeight = 0.20;
-                                        $midtermWeight = 0.30;
-                                        $finalsWeight = 0.35;
-
-                                        $weightedTotal = 
-                                            ($row['quiz1'] * $quizWeight) + 
-                                            ($row['quiz2'] * $quizWeight) + 
-                                            ($row['quiz3'] * $quizWeight) + 
-                                            ($row['prelim'] * $prelimWeight) + 
-                                            ($row['midterm'] * $midtermWeight) + 
-                                            ($row['finals'] * $finalsWeight);
-
-                                        $totalWeightedSum += $weightedTotal;
-                                        $totalWeight += ($quizWeight + $prelimWeight + $midtermWeight + $finalsWeight);
-                                        $average = $weightedTotal;
+                                        $total = $row['quiz1'] + $row['quiz2'] + $row['quiz3'] + $row['prelim'] + $row['midterm'] + $row['finals'];
+                                        $average = $total / 6;
                                         echo "<td class='px-6 py-4'>" . htmlspecialchars($average) . "</td>";
                                         echo "</tr>";
                                     }

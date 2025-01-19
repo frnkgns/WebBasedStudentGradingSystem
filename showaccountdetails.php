@@ -1,12 +1,8 @@
 <?php
-session_start(); // Start the session to retrieve data
+session_start();
 
-// Retrieve session data
 $studentid = isset($_SESSION['studentid']) ? $_SESSION['studentid'] : '';
 $password = isset($_SESSION['password']) ? $_SESSION['password'] : '';
-
-// Optional: You may want to clear the session data after retrieval if it's not needed anymore
-// unset($_SESSION['studentid'], $_SESSION['password']);
 ?>
 
 <!DOCTYPE html>
